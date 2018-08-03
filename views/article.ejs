@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+<%- include("./public/head.ejs") %>
+<body>
+<%- include("./public/header.ejs") %>
+<section class="main floatfix">
+    <%- include("./public/aside.ejs") %>
+    <section class="main-articles articles">
+        <section class="main-articles-title">
+            <h2><a href=""><%= article.articleTitle %></a></h2>
+            <p>
+                <span>作者：<%= article.articleAuthor %></span><span>发布时间：<%= article.articleTime %></span><span>浏览量：<%= article.articleClick %></span>
+            </p>
+        </section>
+        <section class="main-articles-content">
+            <!--<p><%= article.articleContent %></p>-->
+            <div id="test-editormd-view">
+                <textarea name="content"><%= article.articleContent %></textarea>
+            </div>
+        </section>
+    </section>
+</section>
+<script type="text/javascript">
+    $(function () {
+        editormd.markdownToHTML("test-editormd-view", {
+            // markdown        : markdown ,//+ "\r\n" + $("#append-test").text(),
+            //htmlDecode      : true,       // 开启 HTML 标签解析，为了安全性，默认不开启
+            htmlDecode      : "style,script,iframe",  // you can filter tags decode
+            //toc             : false,
+            tocm            : true,    // Using [TOCM]
+            // tocContainer    : "#custom-toc-container", // 自定义 ToC 容器层
+            //gfm             : false,
+            //tocDropdown     : true,
+            // markdownSourceCode : true, // 是否保留 Markdown 源码，即是否删除保存源码的 Textarea 标签
+            emoji           : true,
+            taskList        : true,
+            tex             : true,  // 默认不解析
+            flowChart       : true,  // 默认不解析
+            sequenceDiagram : true   // 默认不解析
+        });
+        //移除markdown自带的样式
+        $("#test-editormd-view").removeClass("editormd-preview-container");
+        $("#test-editormd-view").removeClass("editormd-html-preview");
+    });
+</script>
+<%- include("./public/footer.ejs") %>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Node的个人博客</title>
+    <meta http-equiv="x-ua-compatible" content="IE=Edge,chrome=1">
+    <meta name="description" content="Node的个人博客，分享Node.js技术，不忘扒拉了扒拉了白拉拉了吧">
+    <meta name="keywords" content="chase, node, js, 哈哈哈">
+    <link rel='stylesheet' href='/stylesheets/normalize.css'/>
+    <link rel='stylesheet' href='/stylesheets/main.css'/>
+</head>
+<body>
+<header>
+    <h1>Node的个人博客</h1>
+</header>
+<section class="main floatfix">
+    <aside>
+        <section class="main-aside-avatar">
+            <img src="../images/login.jpg" alt="">
+        </section>
+        <ul>
+            <li><a href="">撰写文章</a></li>
+            <li><a href="">关于博客</a></li>
+            <li><a href="">友情链接</a></li>
+            <li><a href="">登出博客</a></li>
+        </ul>
+    </aside>
+    <section class="main-articles">
+        <ul>
+            <% for(var i = 0, max = articles.length;i < max;i++){ %>
+            <li class="main-articles-item">
+                <h2><a href=""><%= articles[i].articleTitle %></a></h2>
+                <section class="main-articles-item-des">
+                    <p>
+                        <span>作者：<%= articles[i].articleAuthor %></span><span>发布时间：<%= articles[i].articleTime %></span><span>浏览量：<%= articles[i].articleClick %></span>
+                    </p>
+                </section>
+            </li>
+            <% } %>
+            <li></li>
+        </ul>
+    </section>
+</section>
+<footer>
+    <p>Copyright @ 2019 Node</p>
+    <p>Powered by Express</p>
+</footer>
+</body>
+</html>

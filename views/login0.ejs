@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="login">
+<head>
+    <meta charset="UTF-8">
+    <title>Node的个人博客</title>
+    <meta http-equiv="x-ua-compatible" content="IE=Edge,chrome=1">
+    <meta name="description" content="Node的个人博客，分享node.js技术,Node.js,Node的博客，Node.js技术">
+    <meta name="keyword" content="Node,Node.js,Node的博客，Node.js技术">
+    <link rel='stylesheet' href='/stylesheets/normalize.css'/>
+    <link rel='stylesheet' href='/stylesheets/main.css'/>
+</head>
+<body>
+<section>
+    <form action="/login" method="post">
+        <div class="form-group">
+            <input type="text" name="name" placeholder="登录名">
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" placeholder="密码">
+            <% if(message){ %>
+            <p><%= message %></p>
+            <% } %>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="登录">
+        </div>
+    </form>
+</section>
+<footer>
+    <p>Copyright @ 2019 Node</p>
+    <p>Powered by Express</p>
+</footer>
+</body>
+</html>
